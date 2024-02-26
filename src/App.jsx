@@ -5,13 +5,15 @@ import './App.css';
 
 
 
+
+
+
 function App() {
 
 
- 
-  
 
-  
+
+
   const [selectedLanguage, setSelectedLanguage] = useState('en');
 
   const handleLanguageChange = (e) => {
@@ -62,59 +64,86 @@ function App() {
     }
   };
 
+  const TranslatedText = getTranslatedText();
+
+  const [SelectedLanguage, SetSelectedLanguage] = useState('en');
+  const [loading, setLoading] = useState(true); 
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(delay);
+  }, []);
+
+  const HandleLanguageChange = (e) => {
+    setSelectedLanguage(e.target.value);
+  };
+
+  const GetTranslatedText = () => {
+  };
+
   const translatedText = getTranslatedText();
 
+  if (loading) {
+    return <div className="loader">Loading...</div>;
+  }
 
 
 
 
 
+
+  
 
 
   return (
 
     <>
 
-    
-      <div className="portfolio">
 
-      
+<div className="portfolio">
 
-        <div className="container">
-          <nav className='nav'>
-            <ul>
-              <li>{translatedText.aboutMe}</li>
-              <li>{translatedText.skills}</li>
-              <li>{translatedText.projects}</li>
-              <li>{translatedText.contact}</li>
-            </ul>
-            <div className="language-select">
-        <select className='select' id="language" value={selectedLanguage} onChange={handleLanguageChange}>
-          <option value="en">English</option>
-          <option value="ru">Русский</option>
-          <option value="uz">O'zbekcha</option>
-        </select>
-      </div>
-          </nav>
-
-          <div className="main">
-            <div className="text-container">
-              <h1>{translatedText.hi} <img className='img' src="src/img/Emoji.png" alt=""/> , <br /> I’m {translatedText.name}, <br /> {translatedText.role}</h1>
-              <p>{translatedText.experience}</p>
-
-              <div className="button-group">
-                <button className='btn1'>{translatedText.hireButton}</button>
-                <button className='btn2'>{translatedText.projectsButton}</button>
-              </div>
-            </div>
-
-            <img className='Group' src="src/img/Group 1.png" alt="" />
+      <div className="container">
+        
+        <nav className='nav'>
+          <ul>
+            <li>{translatedText.aboutMe}</li>
+            <li>{translatedText.skills}</li>
+            <li>{translatedText.projects}</li>
+            <li>{translatedText.contact}</li>
+          </ul>
+          <div className="language-select">
+            <select className='select' id="language" value={selectedLanguage} onChange={handleLanguageChange}>
+              <option value="en">English</option>
+              <option value="ru">Русский</option>
+              <option value="uz">O'zbekcha</option>
+            </select>
           </div>
+
+   
+        
+        </nav>
+
+        <div className="main">
+          <div className="text-container">
+            <h1>{translatedText.hi} <img className='img' src="src/img/Emoji.png" alt="" /> , <br /> I’m {translatedText.name}, <br /> {translatedText.role}</h1>
+            <p>{translatedText.experience}</p>
+
+            <div className="button-group">
+              <button className='btn1'>{translatedText.hireButton}</button>
+              <button className='btn2'>{translatedText.projectsButton}</button>
+            </div>
+          </div>
+
+          <img className='Group' src="src/img/Group 1.png" alt="" />
         </div>
       </div>
-    
-     
+      </div>
+
+
     </>
+    
   );
 }
 

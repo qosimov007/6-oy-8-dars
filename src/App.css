@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
+ 
 }
 
 .light-mode {
@@ -19,6 +20,7 @@ body {
   border: 1px solid black;
   margin-left: 400px;
   background: linear-gradient(90deg, #1F3040 51.33%, #FF9442 51.5%);
+  
 
 }
 .container{
@@ -206,4 +208,24 @@ h1{
   color: #981919;
   transition: all .1s linear;
   cursor: pointer;
+}
+.app-container {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #333333;
+}
+.loader{
+  font-size: 100px;
+  margin-left: 1200px;
 }
